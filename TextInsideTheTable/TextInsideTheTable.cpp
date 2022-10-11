@@ -1,11 +1,8 @@
-﻿// TextInsideTheTable.cpp : Определяет точку входа для приложения.
-//
-
-#include "framework.h"
+﻿#include "framework.h"
 #include "TextInsideTheTable.h"
 #include <ctime>
 
-#define MAX_LOADSTRING 100
+#define MAX_LOADSTRING 100 // размер буфера на загрузку строки
 
 // Глобальные переменные:
 HINSTANCE hInst;                                // текущий экземпляр
@@ -16,7 +13,7 @@ CONST INT numOfRows = 3;                    // количество строк �
 CONST INT numOfColumns = 4;                 // количество столбцов в итоговой таблице
 char slist[numOfRows * numOfColumns][255];  // массив со строками, которые будут записываться в каждую из ячеек таблицы
 
-// Отправить объявления функций, включенных в этот модуль кода:
+// Предобъявление функций:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
 BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
@@ -43,9 +40,6 @@ int APIENTRY wWinMain(HINSTANCE hInstance,     // указатель на нач
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
     LoadStringW(hInstance, IDC_TEXTINSIDETHETABLE, szWindowClass, MAX_LOADSTRING);
     MyRegisterClass(hInstance);
-
-
-
 
     // Выполнить инициализацию приложения:
     if (!InitInstance(hInstance, nCmdShow))
